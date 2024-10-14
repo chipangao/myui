@@ -29,7 +29,7 @@ export default function RootLayout({
       <html lang="en">
         <body>
           <ContextProvider>
-              {/* <Navigation/> */}
+              <Navigation/>
               {children}
           </ContextProvider>
         </body>
