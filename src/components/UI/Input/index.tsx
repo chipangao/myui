@@ -6,7 +6,7 @@ interface InputProps {
     password?: boolean;
 }
 
-export default function index(props:InputProps){
+export default function Index(props:InputProps){
 
     const [show, setShow] = React.useState(true);
     const { password } = props
@@ -20,7 +20,7 @@ export default function index(props:InputProps){
         />
         <label className={styles.label}>
           <div>
-            {props.label.split("").map((item: any, index: number) => {
+            {props.label.split("").map((item: string, index: number) => {
               return (
                 <span
                   key={item + index}

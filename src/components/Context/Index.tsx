@@ -4,25 +4,33 @@ import React, { useEffect } from "react";
 import { createContext, useContext, useState } from "react";
 import { Navigation } from "../UI";
 
+interface TypeOfContext {
+  isAuthenticated:boolean;
+  setIsAuthenticated:(b:boolean)=>void;
+  theme:string|undefined,
+  setTheme:(s:string)=>void;
+  setTheme2:(s:string)=>void;
+}
+
 // export const experimental_ppr = true
-export const Context = createContext<typeOfContext.context>({
+export const Context = createContext<TypeOfContext>({
   isAuthenticated: false,
-  setIsAuthenticated: function (b: boolean): void {
+  setIsAuthenticated: function (): void {
     throw new Error("Function not implemented.");
   },
   theme: "",
-  setTheme: function (s: string): void {
+  setTheme: function (): void {
     throw new Error("Function not implemented.");
   },
-  setTheme2: function (s: string): void {
+  setTheme2: function (): void {
     throw new Error("Function not implemented.");
   },
 });
 
 export function ContextProvider({ children }: { children: React.ReactNode }) {
 
-  const [isAuthenticated, setIsAuthenticated] = useState<any>(false);
-  const [theme, setTheme] = useState<any>(undefined);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [theme, setTheme] = useState<string|undefined>(undefined);
 
   useEffect(() => {
     try {
@@ -34,7 +42,7 @@ export function ContextProvider({ children }: { children: React.ReactNode }) {
         setTheme("light");
       }
     } catch (err) {
-      console.log("error loading the color theme");
+      console.log("error loading the color theme",err);
     }
   }, [theme]);
 
@@ -44,9 +52,9 @@ export function ContextProvider({ children }: { children: React.ReactNode }) {
     document.querySelector("html")?.setAttribute("data-theme", theme);
   };
 
-  const getTheme = () => {
-    return localStorage.getItem("theme") || undefined;
-  };
+  // const getTheme = () => {
+  //   return localStorage.getItem("theme") || undefined;
+  // };
 
 
   const items =[
@@ -87,6 +95,6 @@ export function ContextProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function getContext() {
+export function GetContext() {
   return useContext(Context);
 }
