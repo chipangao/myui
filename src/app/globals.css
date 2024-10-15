@@ -50,10 +50,13 @@ a {
 
 [data-theme='dark'] {
   --background: black;
+  --background-secondary: rgb(32, 32, 32);
   --text-primary: white;
+  --button-background:grey;
   --text-secondary: grey;
   --accent: darkred;
   --border-color: grey;
+  --border-color-hover: rgba(0, 118, 6, 0);
 }
 
 [data-theme='light'] {
@@ -62,4 +65,5 @@ a {
   --text-secondary: grey;
   --accent: darkred;
   --border-color: grey;
+  --border-color-hover: grey;
 }

@@ -2,6 +2,7 @@
 
 import React, { useEffect } from "react";
 import { createContext, useContext, useState } from "react";
+import { Navigation } from "../UI";
 
 // export const experimental_ppr = true
 export const Context = createContext<typeOfContext.context>({
@@ -19,8 +20,8 @@ export const Context = createContext<typeOfContext.context>({
 });
 
 export function ContextProvider({ children }: { children: React.ReactNode }) {
-  const [isAuthenticated, setIsAuthenticated] = useState<any>(false);
 
+  const [isAuthenticated, setIsAuthenticated] = useState<any>(false);
   const [theme, setTheme] = useState<any>(undefined);
 
   useEffect(() => {
@@ -47,6 +48,14 @@ export function ContextProvider({ children }: { children: React.ReactNode }) {
     return localStorage.getItem("theme") || undefined;
   };
 
+
+  const items =[
+    {label:'Home', key:0},
+    {label:'Input', key:1},
+    {label:'Button', key:2},
+    {label:'Icon', key:3},
+  ]
+
   return (
     <Context.Provider
       value={{
@@ -58,6 +67,7 @@ export function ContextProvider({ children }: { children: React.ReactNode }) {
       }}
     >
       <div style={{ visibility: theme ? "visible" : "hidden",display:'flex' }}>
+        <Navigation items={items}/>
         { children }
       </div>
 
