@@ -37,7 +37,10 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 # My react ui
 
-(https://img.shields.io/badge/any_text-you_like-blue)
+<p>
+    <img src="https://img.shields.io/badge/any_text-you_like-blue" />
+<p>
+
 First, run the development server:
 
 ```bash
